@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html >
+
+        <%- include('../partials/head.ejs'); %>
+        <style>
+
+                </style>
+<body>
+            <%- include('../partials/header.ejs'); %> 
+
+    <main class="main">
+        <section class="home section" id="home">
+            <div class="home_container container grid">
+                <div class="home_content grid">
+                    <div class="home_social">
+                        <a href="https://www.facebook.com/profile.php?id=100009203834822" class="home_social-icon" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="" class="home_social-icon" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://github.com/afnanalkadasi" class="home_social-icon" target="_blank">
+                            <i class="fab fa-github-alt"></i>
+                        </a>
+                    </div>
+                    <div class="home_img">
+                        <img src="img/im2.png" x="12" y="18" class="home_blob_img">
+                    </div>
+
+                    <div class="home_data">
+                        <h1 class="home_title">
+                            <div class="warpper">
+                                <div class="static-txt"> I'm</div>
+                                <ul class="dynamic-txts">
+                                    <li><span>Engnieer</span></li>
+                                    <li><span>Designer</span></li>
+                                    <li><span>Web Developer</span></li>
+                                </ul>
+                            </div>
+                            </h1>
+                        <p class="home_description">
+                            I have experience in web design and development.
+                            Also, I have knowleged in some languages program.
+                        </p>
+                        <a href="#contact" class="button button-flex">
+                            Contact Me
+                        </a>
+                        <a download="" href="pdf/cv_afnan.pdf" class="button button-flex">
+                            Download CV <i class="fa-solid fa-down"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <%- include('../partials/skill.ejs'); %> 
+     
+        <%- include('../partials/exper.ejs'); %> 
+        <%- include('../partials/work.ejs'); %> 
+        <%- include('../partials/Service.ejs'); %> 
+        <%- include('../partials/contact.ejs'); %> 
+          
+        <div id="id01" class="modal ">
+               
+            <div class="login-box">
+                    <div class="imgcontainer">
+                            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                    </div>
+                <h2>Login</h2>
+              
+                <form class="modal-content animate" action="" method="post">
+                 
+              
+                        <div class="user-box">
+                                <input type="text"  name="username" required>
+                                <label>Username</label>
+                        </div>
+                        <div class="user-box">
+                               
+                                <input type="password" name="password" required id="password">
+                                       
+                                <label  for="psw" >Password  </label> <i class="bi bi-eye-slash" id="togglePassword" style="float: right;
+                                cursor: pointer; margin-top: -60px; margin-right: 10px; color: tomato; ">j</i>
+                                                     
+                              </div>
+                
+                         <a href="/dashboard" type="submit" class="log">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            Submit
+                          </a>
+                        <br>
+                        <div class="forg">
+                                <label >
+                                        Forgot   <a href="#" style="color: #03e9f4;">password?</a> 
+                                    </label>
+                        </div>
+                        
+                       
+              
+              
+                </form>
+            </div>
+        </div>
+              
+     
+    </main>
+    
+    <a href="#" class="scroll-up" id="scroll-up">
+        <i class="fas fa-arrow-up scroll-up_icon "></i>
+    </a>
+ <%- include('../partials/footer.ejs'); %> 
+
+    <script src="js/main.js"> </script>
+    <script>
+            // Get the modal
+            var modal = document.getElementById('id01');
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            
+    </script>
+    <script>
+          const togglePassword = document.querySelector("#togglePassword");
+        const password = document.querySelector("#password");
+
+        togglePassword.addEventListener("click", function () {
+            // toggle the type attribute
+            const type = password.getAttribute("type") === "password" ? "text" : "password";
+            password.setAttribute("type", type);
+            
+            // toggle the icon
+            this.classList.toggle("bi-eye");
+        });
+
+        // prevent form submit
+        const form = document.querySelector("form");
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+
+</html>

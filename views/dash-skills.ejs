@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link href="../css2/bootstrap.min.css" rel="stylesheet">
+    <link href="../css2/boxicons.min.css" rel="stylesheet">
+    <!-- <link href="../css/custom.css" rel="stylesheet"> -->
+    <link href="../css2/footer.css" rel="stylesheet">
+    <link href="../css2/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@700&family=Fira+Sans:wght@400;500;700&family=Satisfy&family=Sriracha&family=Kaushan+Script&display=swap" />
+    <style>
+        .text-secondary{
+                  color: rgb(121, 126, 197);
+               }
+                .text-prof{
+                    color: rgb(110, 115, 192);
+                }
+                .progress-bar{
+  background-color: hsl(255, 69%, 64%);
+  border-radius: 10px;
+  height: 10px;
+}
+.progress{
+  background: none;
+  border-radius: 10px;
+}
+.justify-content-lg-between {
+    justify-content: space-between!important;
+    height: 60px;
+  }
+.img_wr{
+  float: right;
+  margin-right: 10px;
+}
+    </style>
+</head>
+
+<body class="bg-light" style="color: rgb(102, 62, 96);">
+    <main class="container">
+        <!-- top nav start -->
+        <div class="row mx-1 bg-white my-3 col-12 d-flex justify-content-lg-between shadow">
+            <nav aria-label="breadcrumb" class="main-breadcrumb col-6 p-3">
+                <ol class="breadcrumb ms-3">
+                    <li class="breadcrumb-item fs-6 fw-bold"><a href="/index">Home</a></li>
+                    <li class="breadcrumb-item active fs-6 fw-bold" aria-current="page"> Profile</li>
+                </ol>
+
+            </nav>
+            <div class="nav-item dropdown col-6  p-2 d-flex justify-content-end">
+                <a class="nav-link dropdown-toggle fs-6 fw-bold" href="#" id="navbarDropdown" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Afnan Alkadasi
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item fs-6 fw-bold" href="/index">LogOut</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- top nav end -->
+        <!-- side sec -->
+        <div class="row">
+            <!-- Dashboard Nav Section -->
+            <div class="col-lg-4 col-md-4 col-12 mb-3">
+                <div class="card shadow p-3 pt-0 bg-opacity-0">
+                    <!-- user avatar -->
+
+                    <div class="col-12 d-flex justify-content-center align-items-center p-4 position-relative">
+                        <img src="img/im2.png" class="user-avatar img-fluid rounded-circle" alt="user avatar" style="width: 70%;" />
+                        <a role="button" data-bs-toggle="modal" data-bs-target="#avatar-edit-model" class="position-absolute bg-white border border-primary rounded d-flex justify-content-center align-items-lg-center rounded-circle"
+                            style="bottom: 10%;left: 35%; width: 30px;height: 30px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square "
+                                viewBox="0 0 16 16">
+                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- name -->
+                    <div class="text-center">
+                        <a class="text-prof fs-5 fw-bold" href="">Afnan Alkadasi</a>
+                        <p>Software Engineering</p>
+                    </div>
+
+                    <!-- dashboard nav -->
+                    <nav class="card px-3 py-4 mt-3 d-flex gap-3">
+                        <!-- info -->
+                        <a href="#" id="personal" class="text-prof d-flex align-items-center d-inline-block ms-3 border-bottom pb-2">
+                            <i class="fa fa-user pe-2"></i>
+                            <span class="fs-6 fw-bold">Personal Info</span>
+                        </a>
+
+                        <!-- skills -->
+                        <a href="/dash-Skill" id="" class="text-secondary d-flex align-items-center d-inline-block ms-3 border-bottom pb-2">
+                            <i class="fa fa-shekel-sign pe-2"></i>
+                            <span class="fs-6 fw-bold">Skills</span>
+                        </a>
+
+                        <!-- experience -->
+                        <a href="/dash-Exper" id="" class="text-secondary d-flex align-items-center d-inline-block ms-3 border-bottom pb-2">
+                            <i class="fa fa-object-group pe-2"></i>
+                            <span class="fs-6 fw-bold">Experience</span>
+                        </a>
+
+                        <!-- Works -->
+                        <a href="#" id="Works" class="text-secondary d-flex align-items-center d-inline-block ms-3 border-bottom pb-2">
+                            <i class="fa fa-book pe-2"></i>
+                            <span class="fs-6 fw-bold">Works</span>
+                        </a>
+                        <!-- Services -->
+                        <a href="/dash-Service" id="Services" class="text-secondary d-flex align-items-center d-inline-block ms-3 border-bottom pb-2">
+                            <i class="fa fa-book pe-2"></i>
+                            <span class="fs-6 fw-bold">Services</span>
+                        </a>
+                        <a href="/dash-contact" id="Contact" class="text-secondary d-flex align-items-center d-inline-block ms-3 border-bottom pb-2">
+                            <i class="fa fa-book pe-2"></i>
+                            <span class="fs-6 fw-bold">Contact</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Skills Section -->
+            <section class="col-lg-8 col-md-8 col-12" id="skil">
+                <div class="card shadow p-3">
+                    <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
+                        <h4 class="fw-bold text-prof">Skills</h4>
+
+                        <a role="button" data-bs-toggle="modal" data-bs-target="#addSkill" class="  border border-primary rounded d-flex justify-content-center align-items-lg-center rounded-circle"
+                            style="bottom: 10%;left: 35%; width: 30px;height: 30px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg"
+                                viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="card-body p-0">
+
+                        <% let i =1; if(skills.length){ %>
+                        <% for(let item =0; item< skills.length; item++){ %>
+                    
+                        <%= i++ %>
+                        <div class="row shadow-sm">
+
+                            <h5 class="fw-bold">
+                                    <%= skills[item].categotry %>
+                            </h5>
+
+                            <!--  skill 1 -->
+                            <div class="col-12 mb-2">
+
+                                <div class="shadow-sm p-3">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <h6>
+                                            <%= skills[item].skill_name %>
+                                        </h6>
+
+                                        <div>
+                                            <button type="button" class="btn btn-sm text-lg-end" style="color:rgb(41, 204, 155);"
+                                                data-bs-toggle="modal" data-bs-target="#editSkill<%= skills[item]._id %>">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                    class="bi bi-pencil-square " viewBox="0 0 16 16">
+                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                                </svg>
+                                            </button>
+
+                                            <a href="/delete_skill/<%=skills[item]._id%>" style="color:rgb(204, 41, 55);">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                    class="bi bi-trash3" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M6.5 1a.5.5 0 0 0-.5.5v1h4v-1a.5.5 0 0 0-.5-.5h-3ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1H3.042l.846 10.58a1 1 0 0 0 .997.92h6.23a1 1 0 0 0 .997-.92l.846-10.58Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                                                </svg></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width:<%=skills[item].progress_percent %>%"
+                                            aria-valuenow="<%=skills[item].progress_percent %>" aria-valuemin="0"
+                                            aria-valuemax="100">
+                                            <%= skills[item].progress_percent %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- edit skill Modal  -->
+                            <div class="modal fade" id="editSkill<%=skills[item]._id %>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content p-3">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title fw-bold text-center" id="exampleModalLabel">Add
+                                                Skill</h4>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form class="row g-3 needs-validation" action="Edit_skills" method="post">
+                                                <input type="hidden" name="id" value="<%=skills[item]._id%>">
+                                                <div class="col-12">
+                                                    <input type="text" class="form-control rounded-pill" id="skill"
+                                                        name="categotry" placeholder="Skill" value="<%=skills[item].categotry%>">
+                                                </div>
+                                                <div class="col-12">
+                                                    <input type="text" class="form-control rounded-pill" id="skill"
+                                                        name="skill_name" placeholder="Skill" value="<%=skills[item].skill_name%>">
+                                                </div>
+                                                <div class="col-12">
+                                                    <input type="range" class="form-range" name="progress_percent" id="customRange1"
+                                                        value="<%=skills[item].progress_percent%>">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-primary d-block " type="submit">Save</button>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <%}
+            
+            
+        }
+
+    else{
+    %>
+
+
+                        There are no skill
+
+
+                        <%}%>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Modal Add Skill -->
+            <div class="modal fade" id="addSkill" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content p-3">
+                        <div class="modal-header">
+                            <h4 class="modal-title fw-bold text-center" id="exampleModalLabel">Add Skill</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row g-3 needs-validation" action="addskills" method="post">
+                                <div class="col-12">
+                                    <input type="text" class="form-control rounded-pill" id="skill" name="categotry"
+                                        placeholder="categotry">
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control rounded-pill" id="skill" name="skill_name"
+                                        placeholder="Skill">
+                                </div>
+                                <div class="col-12">
+                                    <input type="range" class="form-range" name="progress_percent" id="customRange1">
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary d-block " type="submit">Save</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delete skill modal -->
+            <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body fw-bold d-flex justify-content-lg-center align-items-center flex-column">
+                            <i class="bi bi-exclamation-circle fs-1 text-danger"></i>
+                            <h3 class="fs-4">Do you want to delete?</h3>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                                No
+                            </button>
+                            <button type="button" class="btn btn-danger">Yes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <script src="../js2/bootstrap.bundle.min.js"></script>
+            <script src="../js2/jquery.min.js"></script>
+            <script>
+                // $('personal').click($('pp').hide());
+                $(document).ready(function () {
+                    $("#wrk,#serv,#expe,#cont,#Edpers").hide();
+                });
+
+                $("#Edit").click(function () {
+                    $("#wrk,#skil,#serv,#expe,#cont,#Edpers,#perso").hide();
+                    $("#Edpers").show();
+                });
+
+                $("#saveEd").click(function () {
+                    $("#wrk,#skil,#serv,#expe,#cont,#Edpers,#Edpers").hide();
+                    $("#perso").show();
+                });
+
+                $("#personal").click(function () {
+                    $("#wrk,#skil,#serv,#expe,#cont,#Edpers").hide();
+                    $("#perso").show();
+                });
+
+                $("#skills").click(function () {
+                    $("#wrk,#perso,#serv,#expe,#cont,#Edpers").hide();
+                    $("#skil").show();
+
+
+                });
+
+                $("#experience").click(function () {
+                    $("#wrk,#perso,#serv,#skil,#cont,#Edpers").hide();
+                    $("#expe").show();
+
+
+                });
+
+                $("#Works").click(function () {
+                    $("#wrk,#perso,#expe,#skil,#cont,#Edpers").hide();
+                    $("#wrk").show();
+
+
+                });
+
+                $("#Services").click(function () {
+                    $("#wrk,#perso,#expe,#skil,#serv,#Edpers").hide();
+                    $("#serv").show();
+
+                });
+                $("#Contact").click(function () {
+                    $("#wrk,#perso,#expe,#skil,#serv,#Edpers").hide();
+                    $("#cont").show();
+
+                });
+            </script>
+
+
+</body>
+
+</html>
