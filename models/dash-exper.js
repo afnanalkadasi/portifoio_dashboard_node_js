@@ -1,16 +1,7 @@
-const mongoose = require('mongoose');
+const database = require('../DB/connection');
 
-const DB = 'mongodb://127.0.0.1:27017/Portfolio';
 
-mongoose
-  .connect(DB, {
-    autoIndex: true,
-  })
-  .then(() => {
-    console.log('DB connected :)');
-  });
-
-const experSchema = new mongoose.Schema({
+const experSchema = new database.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
@@ -37,5 +28,5 @@ const experSchema = new mongoose.Schema({
     },
 });
 
-const Exper = mongoose.model('Experience', experSchema);
+const Exper = database.model('Experience', experSchema);
 module.exports = Exper;
