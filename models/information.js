@@ -1,16 +1,6 @@
-const mongoose = require('mongoose');
+const database = require('../DB/connection');
 
-const DB = 'mongodb://127.0.0.1:27017/Portfolio';
-
-mongoose
-  .connect(DB, {
-    autoIndex: true,
-  })
-  .then(() => {
-    console.log('DB connected :)');
-  });
-
-const fileSchema = new mongoose.Schema({
+const fileSchema = new database.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
@@ -30,10 +20,7 @@ const fileSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
-  Gender:{
-    type: Number,
-    required: true,
-  },
+
   phone: {
     type: Number,
     required: true,
@@ -46,20 +33,13 @@ const fileSchema = new mongoose.Schema({
   bio: {
     type: String,
   },
-     user_image: {
-      type: String,
-      required: true,
-    },
-    cv_file: {
-      type: String,
-      required: true,
-    },
+ 
     is_active: {
       type: Boolean,
        default: 1 },
     
 });
 
-const User = mongoose.model('User', fileSchema);
+const User = database.model('User', fileSchema);
 
 module.exports = User;

@@ -1,16 +1,6 @@
-const mongoose = require('mongoose');
+const database = require('../DB/connection');
 
-const DB = 'mongodb://127.0.0.1:27017/Portfolio';
-
-mongoose
-  .connect(DB, {
-    autoIndex: true,
-  })
-  .then(() => {
-    console.log('DB connected :)');
-  });
-
-const ServiceSchema = new mongoose.Schema({
+const ServiceSchema = new database.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
@@ -29,5 +19,5 @@ const ServiceSchema = new mongoose.Schema({
     },
 });
 
-const Service = mongoose.model('Service', ServiceSchema);
+const Service = database.model('Service', ServiceSchema);
 module.exports = Service;

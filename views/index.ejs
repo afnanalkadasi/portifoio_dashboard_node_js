@@ -53,12 +53,200 @@
             </div>
         </section>
 
-        <%- include('../partials/skill.ejs'); %> 
+        <section class="about  section" id="about">
+                <h2 class="section-title"> Skills </h2>
+                <span class="section-subtitle">
+                    My Technical level
+                </span>
+                <div class="skills_container container grid">
+                    <div>
+                           <!-- skill 1 -->
+                    <div class="skills_content skills_open">
+                        <div class="skills_header">
+                             
+                                <i class="fas fa-code skills_icon"></i>
+                            <div>
+                                <h1 class="skills_title">
+                                    Web Developer
+                                </h1>
+                                <span class="skills_subtitle">
+                                    Read More
+                                </span>
+                            </div>
+                            <i class="fas fa-arrow-down skills_arrow"></i>
+                          
+                        </div>
+                        <div class="skills_list grid">
+                            <%  if(skills.length){ %>
+                                <% for(let item =0; item< skills.length; item++){ %>
+                            
+                      
+                            <div class="skills_data">
+                                <div class="skills_titles">
+                                    <h3 class="skills_name">     <%= skills[item].skill_name %></h3>
+                                    <span class="skills_number">   <%= skills[item].progress_percent %> </span>
+                                </div>
+                                <div class="skills_bar">
+                                    <span class="skills_percentage " style="width: <%= skills[item].progress_percent %>%;"></span>
+                                </div>
+                            </div>
+                            <%}
+            
+            
+                        }
+                
+                    else{
+                    %>
+                
+                
+                                        There are no skill
+                
+                
+                                        <%}%>
+                        </div>
+                    </div>
+                    </div>
+                               
+                </div>
+            </section>
      
-        <%- include('../partials/exper.ejs'); %> 
+            <section class="experienc section" id="experienc">
+                    <h2 class="section-title"> Experience </h2>
+                    <div class="exper">
+                      
+                                  <div class="menu">
+                                      <div class="course">
+                                            <% if(exper.length){ %>
+                                                <% for(let item =0; item< exper.length; item++){ %>
+                                        <div class="item">
+                                          <h4><%= exper[item].experince_name%></h4>
+                                          <p><%= exper[item].place %></p>
+                                          <p> <%= exper[item].details %></p>
+                                          <br>
+                                          <p><%= exper[item].year %> Year</p>
+                                        </div>
+                                        <%}%> 
+                                        <%  } else{ %>
+                                 
+                                      
+                                                     There are no experience
+                                                   
+                                 
+                                     <%}%>
+                                      </div>
+                                   </div>
+                      </div>
+                    </section>
+
         <%- include('../partials/work.ejs'); %> 
-        <%- include('../partials/Service.ejs'); %> 
-        <%- include('../partials/contact.ejs'); %> 
+       
+        <section class="service section" id="service">
+                <h2 class="section-title">
+                    Services
+                </h2>
+                <span class="section-subtitle">What's the service i can do it</span>
+                <div class="service_container container">
+                   
+                    <div class="service_sections">
+                        <div class="service_content" >
+                            <!-- service_data1 -->
+                            <%  if(Service.length){ %>
+                                <% for(let item3 =0; item3< Service.length; item3++){ %>
+                            <div class="service_data">
+                                <div>
+                                    <h3 class="service_title">
+                                            <%= Service[item3].service_name%> 
+                                    </h3>
+                                    <span class="service_subtitle">
+                                            <%= Service[item3].details %>
+                                    </span>
+                                </div>
+                                <div class="service_warrper">
+                                    <span class="service_rounder"></span>
+                                    <span class="service_line"></span>
+                                </div>
+                            </div>
+                            
+                        
+                                <%}%> 
+<%  } else{ %>
+
+
+    There are no Service
+  
+
+<%}%>
+  
+                            <!-- service_data4 -->
+                            <div class="service_data">
+                                    <div></div>
+                                    <div>
+                                        <span class="service_rounder"></span>
+                
+                                    </div>
+                                <div>
+            
+                                </div>
+                            </div>
+            
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="contact section" id="contact">
+                    <h2 class="section-title"> Contact Me</h2>
+                    <span class="section-subtitle">
+                        Get in touch
+                    </span>
+                    <div class="contact_container container grid">
+                        <div>
+                                <% if(Contact.length){ %>
+                                    <% for(let item =0; item< Contact.length; item++){ %>
+                            <div class="contact_info">
+                                <i class="<%= Contact[item].icon %> contact_icon"></i>
+                                <div>
+                                    <h3 class="contact_title"><%= Contact[item].contact_name %></h3>
+                                    <span class="contact_subtitle"><%= Contact[item].link %></span>
+                                </div>
+                            </div>
+                            <%}%> 
+                            <%  } else{ %>
+                     
+                          
+                                         There are no Contact
+                                       
+                     
+                         <%}%>
+                        </div>
+                        <form action="#" class="contact_form grid" id="myForm">
+                            <div class="contact_input grid">
+                                <div class="contact_contect">
+                                    <label for="" class="contact_label">Name</label>
+                                    <input type="text" class="contact_input contact_inputs"
+                                     placeholder="Enter Your Full Name" id="usrname">
+                                </div>
+                                <span id="error" style="font-size: 10px; color:red;"></span>
+                                <div class="contact_contect">
+                                    <label for="" class="contact_label">Email</label>
+                                    <input type="email" class="contact_input contact_inputs" id="email" placeholder="Enter Your Email">
+                                </div>
+                                <span id="error2" style="font-size: 10px ; color:red;"></span>
+                                <div class="contact_contect">
+                                    <label for="" class="contact_label">Message</label>
+                                    <textarea name="" id="txt1" cols="0" rows="4" class="contact_input contact_inputs" placeholder="Enter Your Message "></textarea>
+                                </div>
+                                <span id="error3" style="font-size: 10px; color:red;"></span>
+                                <div>
+                                    <a  class="button button-flex" id="submit" type="submit"> 
+                                        Send Message
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
           
         <div id="id01" class="modal ">
                

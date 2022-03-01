@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/dash-head'); %>
+<body class="bg-light" style="color: rgb(102, 62, 96);">
+    <main class="container">
+        <!-- top nav start -->
+        <%- include('../partials/dash-top_nav'); %>
+         <!-- top nav end -->
+        <!-- side sec -->
+        <div class="row">
+            <!-- Dashboard left Nav Section -->
+           
+            <%- include('../partials/dash-left-nav'); %>
+              <!-- Works section -->
+              <section class="col-lg-8 col-md-8 col-12" id="wrk">
+                <div class="card p-3">
+                    <div class="card-header bg-transparent d-flex justify-content-between align-items-center"> 
+                                 <h4 class="fs-3 fw-bold text-prof">Works</h4>
+                  <a role="button" data-bs-toggle="modal"data-bs-target="#add-qual"
+                  class="  border border-primary rounded d-flex justify-content-center align-items-lg-center rounded-circle" 
+                  style="bottom: 10%;left: 35%; width: 30px;height: 30px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                  </svg>
+            </a>
+                    <!-- <i class="fa fa-plus fw-bold fs-5 text-prof"></i> -->
+                    </div>
+  
+                    <div class="card-body">
+                      <div class="row">
+                          <h5 class="fw-bold">Web</h5>
+  
+                          <!--  Works  1-->
+                    <div class="col-12 mb-5 d-flex justify-content-between shadow-sm">
+                        <div class=" p-3 mx-2">
+                        <a href="#">
+                            <h5 class="">
+                            Engineering
+                            </h5>
+                        </a>
+  
+                        <a href="#" class="text-black-50 fs-6 d-flex flex-column">
+                            <h6 class="text-black">https://github.com/afnanalkadasi.io</h6>
+                        </a>
+                        </div>
+                        <div>
+                            <img src="img/im2.png"
+                            class="user-avatar img-fluid rounded-circle img_wr"
+                            alt="user avatar" style="width: 20%;"/>  
+                        </div>
+                    </div>
+                      <!--  Works  2-->
+                      <div class="col-12 mb-5 d-flex justify-content-between shadow-sm">
+                          <div class=" p-3 mx-2">
+                          <a href="#">
+                              <h5 class="">
+                                  Engineering
+                              </h5>
+                          </a>
+    
+                          <a href="#" class="text-black-50 fs-6 d-flex flex-column">
+                              <h6 class="text-black">https://github.com/afnanalkadasi.io</h6>
+                          </a>
+                          </div>
+                          <div>
+                              <img src="img/im2.png"
+                              class="user-avatar img-fluid rounded-circle img_wr"
+                              alt="user avatar" style="width: 20%;"/>  
+                          </div>
+                      </div>
+                      </div>
+                  
+                      <div class="row">
+                          <h5 class="fw-bold">Desgin</h5>
+  
+                          <!--  Works  1-->
+                    <div class="col-12 mb-5 d-flex justify-content-between shadow-sm">
+                        <div class=" p-3 mx-2">
+                        <a href="#">
+                            <h5 class="">
+                            Engineering
+                            </h5>
+                        </a>
+  
+                        <a href="#" class="text-black-50 fs-6 d-flex flex-column">
+                            <h6 class="text-black">https://github.com/afnanalkadasi.io</h6>
+                        </a>
+                        </div>
+                        <div>
+                            <img src="img/im2.png"
+                            class="user-avatar img-fluid rounded-circle img_wr"
+                            alt="user avatar" style="width: 20%;"/>  
+                        </div>
+                    </div>
+                    
+                      </div>
+                  
+                    </div>
+                </div>
+              </section>
+  
+            <!-- Modal Add Skill -->
+            <div class="modal fade" id="addwork" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content p-3">
+                        <div class="modal-header">
+                            <h4 class="modal-title fw-bold text-center" id="exampleModalLabel">Add Work</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row g-3 needs-validation" action="addwork" method="post">
+                                <div class="col-12">
+                                    <input type="text" class="form-control rounded-pill" id="work" name="categotry"
+                                        placeholder="categotry">
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control rounded-pill" id="" name="skill_name"
+                                        placeholder="Skill">
+                                </div>
+                                <div class="col-12">
+                                    <input type="range" class="form-range" name="progress_percent" id="customRange1">
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary d-block " type="submit">Save</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delete skill modal -->
+            <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body fw-bold d-flex justify-content-lg-center align-items-center flex-column">
+                            <i class="bi bi-exclamation-circle fs-1 text-danger"></i>
+                            <h3 class="fs-4">Do you want to delete?</h3>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                                No
+                            </button>
+                            <button type="button" class="btn btn-danger">Yes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <script src="../js2/bootstrap.bundle.min.js"></script>
+            <script src="../js2/jquery.min.js"></script>
+            <script>
+                // $('personal').click($('pp').hide());
+                $(document).ready(function () {
+                    $("#wrk,#serv,#expe,#cont,#Edpers").hide();
+                });
+
+
+            </script>
+
+
+</body>
+
+</html>

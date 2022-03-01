@@ -1,157 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link href="../css2/bootstrap.min.css" rel="stylesheet">
-    <link href="../css2/boxicons.min.css" rel="stylesheet">
-    <!-- <link href="../css/custom.css" rel="stylesheet"> -->
-    <link href="../css2/footer.css" rel="stylesheet">
-    <link href="../css2/font-awesome.min.css" rel="stylesheet"/>
-    <script src="https://kit.fontawesome.com/53e9ef6681.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@700&family=Fira+Sans:wght@400;500;700&family=Satisfy&family=Sriracha&family=Kaushan+Script&display=swap" />
-    <style>
-          .text-secondary{
-                  color: rgb(121, 126, 197);
-               }
-                .text-prof{
-                    color: rgb(110, 115, 192);
-                }
-                .progress-bar{
-  background-color: hsl(255, 69%, 64%);
-  border-radius: 10px;
-  height: 10px;
-}
-.progress{
-  background: none;
-  border-radius: 10px;
-}
-.justify-content-lg-between {
-    justify-content: space-between!important;
-    height: 60px;
-  }
-.img_wr{
-  float: right;
-  margin-right: 10px;
-}
-    </style>
-</head>
+  <%- include('../partials/dash-head'); %>
 <body class="bg-light" style="color: rgb(102, 62, 96);">
     <main class="container">
         <!-- top nav start -->
-        <div class="row mx-1 bg-white my-3 col-12 d-flex justify-content-lg-between shadow">
-            <nav aria-label="breadcrumb" class="main-breadcrumb col-6 p-3">
-              <ol class="breadcrumb ms-3" >
-                <li class="breadcrumb-item fs-6 fw-bold"><a href="/index">Home</a></li>
-                <li class="breadcrumb-item active fs-6 fw-bold" aria-current="page"> Profile</li>
-              </ol>
-              
-            </nav>
-            <div class="nav-item dropdown col-6  p-2 d-flex justify-content-end">
-                <a class="nav-link dropdown-toggle fs-6 fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Afnan Alkadasi 
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item fs-6 fw-bold" href="/index">LogOut</a></li>
-                </ul>
-              </div>
-           
-        </div>
+        <%- include('../partials/dash-top_nav'); %>
          <!-- top nav end -->
         <!-- side sec -->
         <div class="row">
             <!-- Dashboard Nav Section -->
-            <div class="col-lg-4 col-md-4 col-12 mb-3">
-            <div class="card shadow p-3 pt-0 bg-opacity-0">
-                <!-- user avatar -->
-             
-                <div class="col-12 d-flex justify-content-center align-items-center p-4 position-relative">
-                <img src="img/im2.png"
-                    class="user-avatar img-fluid rounded-circle"
-                    alt="user avatar" style="width: 70%;"/>  
-                <a role="button" data-bs-toggle="modal"data-bs-target="#avatar-edit-model"
-                        class="position-absolute bg-white border border-primary rounded d-flex justify-content-center align-items-lg-center rounded-circle" 
-                        style="bottom: 10%;left: 35%; width: 30px;height: 30px;">
-                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square " viewBox="0 0 16 16">
-                      <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                      <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                    </svg>
-                </a>
-                </div>
-
-                <!-- name -->
-                <div class="text-center">
-                <a class="text-prof fs-5 fw-bold" href="">Afnan Alkadasi</a>
-                <p>Software Engineering</p>
-                <a download="" href="" class="button button-flex" style="font-size:15px;"> 
-                    Download CV <i class="fa-solid fa-down"></i>
-                </a>
-                </div>
-
-                <!-- dashboard nav -->
-                <nav class="card px-3 py-4 mt-3 d-flex gap-3">
-                <!-- info -->
-                <a
-                    href="#" id="personal"
-                    class="text-prof d-flex align-items-center d-inline-block ms-3 border-bottom pb-2"
-                >
-                    <i class="fa fa-user pe-2"></i>
-                    <span class="fs-6 fw-bold">Personal Info</span>
-                </a>
-
-                <!-- skills -->
-                <a
-                    href="/dash-Skill" id=""
-                    class="text-secondary d-flex align-items-center d-inline-block ms-3 border-bottom pb-2"
-                >
-                    <i class="fa fa-shekel-sign pe-2"></i>
-                    <span class="fs-6 fw-bold">Skills</span>
-                </a>
-
-                <!-- experience -->
-                <a
-                    href="/dash-Exper" id=""
-                    class="text-secondary d-flex align-items-center d-inline-block ms-3 border-bottom pb-2"
-                >
-                    <i class="fa fa-object-group pe-2"></i>
-                    <span class="fs-6 fw-bold">Experience</span>
-                </a>
-
-                <!-- Works -->
-                <a
-                    href="#" id="Works"
-                    class="text-secondary d-flex align-items-center d-inline-block ms-3 border-bottom pb-2"
-                >
-                    <i class="fa fa-book pe-2"></i>
-                    <span class="fs-6 fw-bold">Works</span>
-                </a>
-                   <!-- Services -->
-                   <a
-                   href="/dash-Service" id="Services"
-                   class="text-secondary d-flex align-items-center d-inline-block ms-3 border-bottom pb-2"
-               >
-                   <i class="fa fa-book pe-2"></i>
-                   <span class="fs-6 fw-bold">Services</span>
-               </a>
-               <a
-               href="/dash-contact" id=""
-               class="text-secondary d-flex align-items-center d-inline-block ms-3 border-bottom pb-2"
-           >
-               <i class="fa fa-book pe-2"></i>
-               <span class="fs-6 fw-bold">Contact</span>
-           </a>
-                </nav>
-            </div>
-            </div>
-
+           
+            <%- include('../partials/dash-left-nav'); %>
               <!-- info Section -->
             <section class="col-lg-8 col-md-8 col-12" id="perso">
               <div class="card shadow p-3">
                 <div class="card-header bg-transparent d-flex justify-content-between align-items-center">
                   <h4 class="fw-bold text-prof">Information</h4>
-                  <a role="button" data-bs-toggle="modal"data-bs-target="#edit-info"
+                  <a role="button" data-bs-toggle="modal"data-bs-target="#adduser"
                         class="  border border-primary rounded d-flex justify-content-center align-items-lg-center rounded-circle" 
                         style="bottom: 10%;left: 35%; width: 30px;height: 30px;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
@@ -161,12 +26,18 @@
                 </div>
 
                 <div class="card-body">
+                  
+                    <% let i =1; if(Users.length){ %>
+                      <% for(let item =0; item< Users.length; item++){ %>
+                  
+                      <%= i++ %>
+                  <div class="row shadow-sm">
                     <div class="row">
                         <div class="col-sm-3">
                           <h6 class="mb-0">User Name</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          Afnan 
+                            <%= Users[item].username %>
                         </div>
                       </div>
                       <hr>
@@ -175,7 +46,7 @@
                         <h6 class="mb-0">Full Name</h6>
                       </div>
                       <div class="col-sm-9 text-secondary">
-                        Afnan Alkadasi
+                          <%= Users[item].fullname %>
                       </div>
                     </div>
                     <hr>
@@ -184,16 +55,7 @@
                         <h6 class="mb-0">Email</h6>
                       </div>
                       <div class="col-sm-9 text-secondary">
-                        afnanalkadasi22@gmail.com
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Gender</h6>
-                      </div>
-                      <div class="col-sm-9 text-secondary">
-                        Female
+                          <%= Users[item].email %>
                       </div>
                     </div>
                     <hr>
@@ -202,25 +64,16 @@
                         <h6 class="mb-0">Phone</h6>
                       </div>
                       <div class="col-sm-9 text-secondary">
-                        (+697) 777 777 777
-                      </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">Address</h6>
-                      </div>
-                      <div class="col-sm-9 text-secondary">
-                        Yemen, Taiz-alhabeel street
+                          <%= Users[item].phone %>
                       </div>
                     </div>
                     <hr>
                      <div class="row">
                       <div class="col-sm-3">
-                        <h6 class="mb-0">Birthday</h6>
+                        <h6 class="mb-0">Address</h6>
                       </div>
                       <div class="col-sm-9 text-secondary">
-                        22/10/1997
+                          <%= Users[item].Address %>
                       </div>
                     </div>
                     <hr>
@@ -229,122 +82,75 @@
                        <h6 class="mb-0">Bio</h6>
                      </div>
                      <div class="col-sm-9 text-secondary">
-                       I'm Engineering ...........................
+                        <%= Users[item].bio %>
                      </div>
                    </div>
+               
+                
+                  </div>
+                  <%}
+            
+           
+                }
+        
+            else{
+            %>
+        
+        
+                                There are no User
+        
+        
+                                <%}%>
                   </div>
               </div>
             </section>
-
-            <!-- Works section -->
-            <section class="col-lg-8 col-md-8 col-12" id="wrk">
-              <div class="card p-3">
-                  <div class="card-header bg-transparent d-flex justify-content-between align-items-center"> 
-                               <h4 class="fs-3 fw-bold text-prof">Works</h4>
-                <a role="button" data-bs-toggle="modal"data-bs-target="#add-qual"
-                class="  border border-primary rounded d-flex justify-content-center align-items-lg-center rounded-circle" 
-                style="bottom: 10%;left: 35%; width: 30px;height: 30px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-                </svg>
-          </a>
-                  <!-- <i class="fa fa-plus fw-bold fs-5 text-prof"></i> -->
-                  </div>
-
-                  <div class="card-body">
-                    <div class="row">
-                        <h5 class="fw-bold">Web</h5>
-
-                        <!--  Works  1-->
-                  <div class="col-12 mb-5 d-flex justify-content-between shadow-sm">
-                      <div class=" p-3 mx-2">
-                      <a href="#">
-                          <h5 class="">
-                          Engineering
-                          </h5>
-                      </a>
-
-                      <a href="#" class="text-black-50 fs-6 d-flex flex-column">
-                          <h6 class="text-black">https://github.com/afnanalkadasi.io</h6>
-                      </a>
-                      </div>
-                      <div>
-                          <img src="img/im2.png"
-                          class="user-avatar img-fluid rounded-circle img_wr"
-                          alt="user avatar" style="width: 20%;"/>  
-                      </div>
-                  </div>
-                    <!--  Works  2-->
-                    <div class="col-12 mb-5 d-flex justify-content-between shadow-sm">
-                        <div class=" p-3 mx-2">
-                        <a href="#">
-                            <h5 class="">
-                                Engineering
-                            </h5>
-                        </a>
-  
-                        <a href="#" class="text-black-50 fs-6 d-flex flex-column">
-                            <h6 class="text-black">https://github.com/afnanalkadasi.io</h6>
-                        </a>
+            <div class="modal fade" id="adduser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content p-3">
+                        <div class="modal-header">
+                            <h4 class="modal-title fw-bold text-center" id="exampleModalLabel">Add User</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div>
-                            <img src="img/im2.png"
-                            class="user-avatar img-fluid rounded-circle img_wr"
-                            alt="user avatar" style="width: 20%;"/>  
+                        <div class="modal-body">
+                            <form class="row g-3 needs-validation" action="/adduser" method="post">
+                                <div class="col-12">
+                                    <input type="text" class="form-control rounded-pill" id="" name="username"
+                                        placeholder="username">
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control rounded-pill" id="" name="fullname"
+                                        placeholder="fullname">
+                                </div>
+                                <div class="col-12">
+                                    <input type="email" class="form-control rounded-pill" name="email" id=""  placeholder="email">
+                                </div>
+                                <div class="col-12">
+                                    <input type="tel" class="form-control rounded-pill" id="" name="phone"
+                                        placeholder="phone">
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control rounded-pill" name="Address" id=""  placeholder="Address">
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control rounded-pill" id="" name="bio"
+                                        placeholder="bio">
+                                </div>
+                                <!-- <div class="col-12">
+                                    <input type="file" class="form-control rounded-pill" id="" name="user_image"
+                                        placeholder="user_image">
+                                </div>
+                                <div class="col-12">
+                                    <input type="file" class="form-control rounded-pill" name="cv_file" id=""  placeholder="cv_file">
+                                </div> -->
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary d-block " type="submit">Save</button>
+                                </div>
+                            </form>
                         </div>
+
                     </div>
-                    </div>
-                
-                    <div class="row">
-                        <h5 class="fw-bold">Desgin</h5>
-
-                        <!--  Works  1-->
-                  <div class="col-12 mb-5 d-flex justify-content-between shadow-sm">
-                      <div class=" p-3 mx-2">
-                      <a href="#">
-                          <h5 class="">
-                          Engineering
-                          </h5>
-                      </a>
-
-                      <a href="#" class="text-black-50 fs-6 d-flex flex-column">
-                          <h6 class="text-black">https://github.com/afnanalkadasi.io</h6>
-                      </a>
-                      </div>
-                      <div>
-                          <img src="img/im2.png"
-                          class="user-avatar img-fluid rounded-circle img_wr"
-                          alt="user avatar" style="width: 20%;"/>  
-                      </div>
-                  </div>
-                    <!--  Works  2-->
-                    <div class="col-12 mb-5 d-flex justify-content-between shadow-sm">
-                        <div class=" p-3 mx-2">
-                        <a href="#">
-                            <h5 class="">
-                                Engineering
-                            </h5>
-                        </a>
-  
-                        <a href="#" class="text-black-50 fs-6 d-flex flex-column">
-                            <h6 class="text-black">https://github.com/afnanalkadasi.io</h6>
-                        </a>
-                        </div>
-                        <div>
-                            <img src="img/im2.png"
-                            class="user-avatar img-fluid rounded-circle img_wr"
-                            alt="user avatar" style="width: 20%;"/>  
-                        </div>
-                    </div>
-                    </div>
-                
-                  </div>
-              </div>
-            </section>
-
-
-
-
+                </div>
+            </div>
         </div>
 
     </main>
@@ -392,140 +198,7 @@
       </div>
     </div>
 
-    <!-- edit user info -->
-    <div
-          class="modal fade"
-          id="edit-info"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content p-3">
-        <div class="modal-header">
-          <h4 class="modal-title fw-bold text-center" id="exampleModalLabel">
-            Edit User Info
-          </h4>
-
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-
-        <div class="modal-body">
-          <form class="row g-3">
-            <div class="col-6"> 
-              <!-- first name -->
-              <div class="input-group">
-                  <input
-                  type="text"
-                  class="form-control"
-                  placeholder="First Name"
-                  aria-label="fName"
-                  aria-describedby="addon-wrapping"
-                  required
-                  value=""
-                  />
-              </div>
-              </div>
-
-              <!-- last name -->
-              <div class="col-6">
-              <div class="input-group">
-                  <input
-                  type="text"
-                  class="form-control l"
-                  placeholder="Last Name"
-                  aria-label="lName"
-                  aria-describedby="addon-wrapping"
-                  required
-                  value=""
-                  />
-              </div>
-              </div>
-
-              <!-- email -->
-              <div class="col-12">
-              <div class="input-group">
-                  <input
-                  type="email"
-                  class="form-control"
-                  placeholder="Email"
-                  aria-label="email"
-                  aria-describedby="addon-wrapping"
-                  required
-                  value=""
-                  />
-              </div>
-              </div>
-
-              <!-- gender -->
-              <div class="col-6">
-              <div class="input-group">
-                  <select
-                  class="form-select"
-                  aria-label="Default select example"
-                  required
-                  >
-                  <option selected disabled>Gender</option>
-                  <option  value="1">Female</option>
-                  <option value="2">Male</option>
-                  </select>
-              </div>
-              </div>
-
-              <!-- phone number -->
-              <div class="col-6">
-              <div class="input-group">
-                  <input
-                  type="text"
-                  class="form-contro"
-                  placeholder="Phone Number"
-                  aria-label="phone"
-                  aria-describedby="addon-wrapping"
-                  required
-                  value=""
-                  />
-              </div>
-              </div> 
-
-              <!-- Address  -->
-              <div class="col-6">
-              <div class="input-group">
-                    <input
-                  type="text"
-                  class="form-control l"
-                  placeholder="Address"
-                  aria-label="lName"
-                  aria-describedby="addon-wrapping"
-                  required
-                  value=""
-                  />
-              </div>
-              </div>
-
-              <!-- date -->
-              <div class="col-6">
-              <div class="input-group">
-                  <input
-                  type="date"
-                  class="form-control"
-                  value="2/22/2022"
-                  />
-              </div>
-              </div>
-          </form>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class=" col-12 btn bg-primary text-white">Save</button>
-        </div>
-      </div>
-      </div>
-    </div>
-      
+    
 
 
 
@@ -546,52 +219,6 @@
         $("#wrk,#skil,#serv,#expe,#cont,#Edpers").hide();
         });
 
-        $("#Edit").click(function(){
-        $("#wrk,#skil,#serv,#expe,#cont,#Edpers,#perso").hide();
-        $("#Edpers").show();
-        });
-
-        $("#saveEd").click(function(){
-        $("#wrk,#skil,#serv,#expe,#cont,#Edpers,#Edpers").hide();
-        $("#perso").show();
-        });
-
-        $("#personal").click(function(){
-        $("#wrk,#skil,#serv,#expe,#cont,#Edpers").hide();
-        $("#perso").show();
-        });
-
-        $("#skills").click(function(){
-        $("#wrk,#perso,#serv,#expe,#cont,#Edpers").hide();
-        $("#skil").show();
-
-
-        });
-
-        $("#experience").click(function(){
-        $("#wrk,#perso,#serv,#skil,#cont,#Edpers").hide();
-        $("#expe").show();
-
-
-        });
-
-        $("#Works").click(function(){
-        $("#wrk,#perso,#expe,#skil,#cont,#Edpers").hide();
-        $("#wrk").show();
-
-
-        });
-
-        $("#Services").click(function(){
-        $("#wrk,#perso,#expe,#skil,#serv,#Edpers").hide();
-        $("#serv").show();
-        
-        });
-        $("#Contact").click(function(){
-        $("#wrk,#perso,#expe,#skil,#serv,#Edpers").hide();
-        $("#cont").show();
-        
-        });
     </script>
 
 

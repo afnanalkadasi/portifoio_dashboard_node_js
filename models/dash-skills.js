@@ -1,23 +1,9 @@
-const mongoose = require('mongoose');
+const database = require('../DB/connection');
 
-const DB = 'mongodb://127.0.0.1:27017/Portfolio';
-
-mongoose
-  .connect(DB, {
-    autoIndex: true,
-  })
-  .then(() => {
-    console.log('DB connected :)');
-  });
-
-const skillsSchema = new mongoose.Schema({
+const skillsSchema = new database.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
-  },
-  categotry:{
-    type:String,
-    required:true,
   },
   skill_name:{
     type: String ,
@@ -32,5 +18,5 @@ const skillsSchema = new mongoose.Schema({
      default: 1 },
 });
 
-const Skills = mongoose.model('Skills', skillsSchema);
+const Skills = database.model('Skills', skillsSchema);
 module.exports = Skills;

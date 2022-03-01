@@ -7,7 +7,7 @@ const Skills = require('./../models/dash-skills');
 const Exper = require('./../models/dash-exper');
 const Service = require('./../models/dash-service');
 const Contact = require('./../models/dash-contact');
-
+const Work = require('./../models/dash-work');
 
 
 // ===multer file==//
@@ -25,11 +25,9 @@ const storage = multer.diskStorage({
 
 const upload = multer({
   fileFilter: (req, { fieldname, mimetype, originalname }, cb) => {
-    const isProfile = fieldname == 'user_image' && mimetype == 'image/jpeg';
-    const isCV = fieldname == 'cv_file' && mimetype == 'application/pdf';
-
-    if (isProfile) cb(null, true);
-    else if (isCV) cb(null, true);
+    const pro_image = fieldname == 'pro_image' && mimetype == 'image/jpeg';
+    
+    if (pro_image) cb(null, true);
     else cb(new Error(`Sorry  The type of ${originalname} not support.`), false);
   },
   storage,
@@ -37,21 +35,18 @@ const upload = multer({
 
 // ==routing==//
 const router = Router();
-
-
-
-
 /* GET index page. */
-router.get('/', function(req, res, next) {
-  res.render('index', {
-    title: ' User porfilo ',
-  });
-});
-router.get('/index', function(req, res, next) {
-  res.render('index', {
-    title: ' User porfilo ',
-  });
-});
+router.get('/index', async(req, res)=> {
+  
+  var skill_i= await Skills.find();
+  var experience_i= await Exper.find();
+  var services_i= await Service.find();
+  var Contact_i= await Contact.find();
+  res.render('index',{skills:skill_i, exper:experience_i, Service: services_i , Contact: Contact_i});
+ });
+
+
+
 // Skills page
 router.get('/dash-Skill', function(req, res, next) {
   Skills.find().then((result)=>{
@@ -85,18 +80,45 @@ router.get('/dash-contact', function(req, res, next) {
   });
 // user operation
 const userFilesHandler = upload.fields([
+  {
+    name: 'user_image',
+    maxCount: 1,
+  },
+  {
+    name: 'cv_file',
+    maxCount: 1,
+  },
 ]);
 //find
 router.get('/dashboard', (req, res, next)=>{
   User.find().then((result) =>{
-    res.render('dashboard', { data: result})
+    res.render('dashboard', { Users: result})
   })
-})
+});
+router.post('/adduser', function(req, res, next) {
+  // const { user_image, cv_file } = req.files;
+
+  var userDetails = new User({
+    username:req.body.username,
+    fullname: req.body.fullname,
+    email: req.body.email,
+    phone: req.body.phone,
+    Address: req.body.Address,
+    bio:req.body.bio,
+ 
+  });
+   
+  userDetails.save();
+        
+console.log("user was add")
+res.redirect('/dashboard');
+
+});
+
 //Add new skill to the view in the data tables section
 router.post('/addskills', function(req, res, next) {
      
   var skillDetails = new Skills({
-    categotry:req.body.categotry,
     skill_name: req.body.skill_name,
     progress_percent: req.body.progress_percent,
   });
@@ -112,7 +134,6 @@ res.redirect('/dash-Skill');
 router.post('/Edit_skills', function(req, res, next){
   
   var item = {
-    categotry:req.body.categotry,
     skill_name: req.body.skill_name,
    
     progress_percent: req.body.progress_percent,
@@ -234,5 +255,6 @@ router.get('*', function(req, res, next) {
     title: ' Error not found ',
   });
 });
+
 module.exports = router;
 

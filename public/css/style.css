@@ -384,27 +384,7 @@ border-radius: .25rem;
     display: block;
     background-color: var(--first-color);
 }
-.skills_html{
-    width: 94%;
-}
-.skills_css{
-    width: 80%;
-}
-.skills_js{
-    width: 75%;
-}
-.skills_php{
-    width: 75%;
-}
-.skills_Photoshop{
-    width: 95%;
-}
-.skills_Adobe_XD{
-    width: 80%;
-}
-.skills_Illustrator{
-    width: 75%;
-}
+
 .skills_close .skills_list{
     height: 0;
     overflow: hidden;
@@ -629,7 +609,7 @@ color: var(--color-lighter);
     .skills_container,
     .contact_container,
     .footer_container{
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(1,1fr);
     }
     .service_sections{
         display: grid;
