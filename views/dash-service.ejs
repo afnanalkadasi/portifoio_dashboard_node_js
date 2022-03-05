@@ -35,7 +35,7 @@
                                             <div class=" p-3">
                                          <a href="#">
                                                 <h5>
-                                                <b><%= Service[item3].service_name%></b>
+                                                <b><i class="<%= Service[item3].icon %> contact_icon"></i><%= Service[item3].service_name%></b>
                                                 </h5>
                                             </a>
                       
@@ -75,6 +75,9 @@
                                                         <form class="row g-3 needs-validation"  action="Edit_service" method="post" >
                                                                 <input  type="hidden" name="id" value="<%=Service[item3]._id%>">
                                                                 <div class="col-12">
+                                                                        <input type="text" class="form-control rounded-pill"  name="icon" placeholder="icon"  value="<%=Service[item3].icon%>">
+                                                                    </div>
+                                                                <div class="col-12">
                                                                     <input type="text" class="form-control rounded-pill" id="expe" name="service_name" placeholder="service_name"  value="<%=Service[item3].service_name%>">
                                                                 </div>
                                                                     <div class="col-12">
@@ -112,9 +115,11 @@
                         </div>
                         <div class="modal-body">
                             <form class="row g-3 needs-validation"  action="addservice" method="post" >
-                           
+                                    <div class="col-12">
+                                            <input type="text" class="form-control rounded-pill"  name="icon" placeholder="icon"  >
+                                        </div>
                                 <div class="col-12">
-                                    <input type="text" class="form-control rounded-pill" id="expe" name="service_name" placeholder="service_name">
+                                    <input type="text" class="form-control rounded-pill" id="" name="service_name" placeholder="service_name">
                                 </div>
                                 <div class="col-12">
                                         <input type="text" class="form-control rounded-pill"  name="details" placeholder="details">
@@ -129,35 +134,6 @@
                     </div>
                 </div>
             </div>
-  <!-- Delete serv modal -->
-  <div
-  class="modal fade"
-  id="delete"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div
-        class="modal-body fw-bold d-flex justify-content-lg-center align-items-center flex-column"
-      >
-        <i class="bi bi-exclamation-circle fs-1 text-danger"></i>
-        <h3 class="fs-4">Do you want to delete?</h3>
-      </div>
-      <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-primary"
-          data-bs-dismiss="modal"
-        >
-          No
-        </button>
-        <button type="button" class="btn btn-danger">Yes</button>
-      </div>
-    </div>
-  </div>
-</div> 
 
 
 </main>

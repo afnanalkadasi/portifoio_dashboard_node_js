@@ -10,28 +10,34 @@ const Contact = require('./../models/dash-contact');
 const Work = require('./../models/dash-work');
 
 
+
 // ===multer file==//
-
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './public/upload');
+  destination: (req, file, cb)=>{
+      if(file.mimetype == "image/png" || file.mimetype == "image/jpeg")
+          cb(null,'public/imgs/');
+      else if(file.mimetype == "application/pdf")
+          cb(null,'public/pdfs/');
   },
-  filename: (req, file, cb) => {
-    const randomNumber = Math.round(Math.random() * 1e9);
-    const uniqueSuffix = `${Date.now()}-${randomNumber}`;
-    cb(null, `${uniqueSuffix}-${file.originalname}`);
+  filename:(req, file, cb)=>{
+      var extension = file.originalname.split('.');
+      var ext = extension[extension.length - 1];
+      var imgName = file.filename + '-'+ Date.now() + '-' + Math.round(Math.random() * 1E9) + '.' + ext;
+      // var imgName = Date.now() + '-' + Math.round(Math.random() * 1E9)+file.originalname;
+
+      cb(null, imgName);
+  }
+}) 
+const upload = multer({
+  storage: storage,
+  fileFilter: (req, file, callback)=>{
+      if(file.mimetype == "image/png" || file.mimetype == "image/jpeg" ||  file.mimetype == "application/pdf")
+          callback(null, true)
+      else callback(null, false);
   },
+  limits:1024*1024 *5,
 });
 
-const upload = multer({
-  fileFilter: (req, { fieldname, mimetype, originalname }, cb) => {
-    const pro_image = fieldname == 'pro_image' && mimetype == 'image/jpeg';
-    
-    if (pro_image) cb(null, true);
-    else cb(new Error(`Sorry  The type of ${originalname} not support.`), false);
-  },
-  storage,
-});
 
 // ==routing==//
 const router = Router();
@@ -42,10 +48,19 @@ router.get('/index', async(req, res)=> {
   var experience_i= await Exper.find();
   var services_i= await Service.find();
   var Contact_i= await Contact.find();
-  res.render('index',{skills:skill_i, exper:experience_i, Service: services_i , Contact: Contact_i});
+  var Work_i= await Work.find();
+  res.render('index',{skills:skill_i, exper:experience_i, Service: services_i , Contact: Contact_i,Works:Work_i});
  });
 
-
+ router.get('/', async(req, res)=> {
+  
+  var skill_i= await Skills.find();
+  var experience_i= await Exper.find();
+  var services_i= await Service.find();
+  var Contact_i= await Contact.find();
+  var Work_i= await Work.find();
+  res.render('index',{skills:skill_i, exper:experience_i, Service: services_i , Contact: Contact_i,Works:Work_i});
+ });
 
 // Skills page
 router.get('/dash-Skill', function(req, res, next) {
@@ -78,17 +93,15 @@ router.get('/dash-contact', function(req, res, next) {
   console.log(result);
   })
   });
+router.get('/dash-work', function(req, res, next) {
+    Work.find().then((result)=>{
+      res.render('dash-work', { Works:result});
+    console.log(result);
+    })
+});
+
+
 // user operation
-const userFilesHandler = upload.fields([
-  {
-    name: 'user_image',
-    maxCount: 1,
-  },
-  {
-    name: 'cv_file',
-    maxCount: 1,
-  },
-]);
 //find
 router.get('/dashboard', (req, res, next)=>{
   User.find().then((result) =>{
@@ -113,6 +126,25 @@ router.post('/adduser', function(req, res, next) {
 console.log("user was add")
 res.redirect('/dashboard');
 
+});
+
+// Edit exper
+router.post('/Edit_Users', function(req, res, next){
+  var item = {
+    username:req.body.username,
+    fullname: req.body.fullname,
+    email: req.body.email,
+    phone: req.body.phone,
+    Address: req.body.Address,
+    bio:req.body.bio,
+  };
+  var id = req.body.id;
+  User.updateMany({"_id": id}, {$set: item}, item, function(err, result){
+   
+    console.log("item updated");
+    console.log(item);
+  })
+  res.redirect('/dashboard');
 });
 
 //Add new skill to the view in the data tables section
@@ -192,6 +224,7 @@ router.post('/Edit_exper', function(req, res, next){
 router.post('/addservice', function(req, res, next) {
      try{
       var serviceDetails = new Service({
+        icon: req.body.icon,
         service_name: req.body.service_name,
         details:req.body.details,
       });
@@ -207,6 +240,7 @@ router.post('/addservice', function(req, res, next) {
 // Edit sevice
 router.post('/Edit_service', function(req, res, next){
   var item = {
+    icon: req.body.icon,
     service_name: req.body.service_name,
     details:req.body.details,
   };
@@ -250,11 +284,46 @@ router.post('/Edit_contact', function(req, res, next){
   })
   res.redirect('/dash-contact');
 });
+
+
+router.post('/addwork', upload.single('pro_image'),function(req, res, next) {
+  const Worksadd = new Work({
+    pro_name: req.body.pro_name,
+    link: req.body.link,
+    pro_image:req.file.filename,
+  });
+  Worksadd.save();
+  console.log("Works was add");
+  res.redirect('/dash-work');
+  
+});
+
+// Edit work
+router.post('/Edit_work', upload.single('pro_image'), function(req, res, next){
+  var item = {
+    pro_name: req.body.pro_name,
+    link: req.body.link,
+    pro_image:req.file.filename,
+  };
+  var id = req.body.id;
+  Work.updateMany({"_id": id}, {$set: item}, item, function(err, result){
+   
+    console.log("item updated");
+    console.log(item);
+  })
+  res.redirect('/dash-work');
+});
+
+
+
+
+
 router.get('*', function(req, res, next) {
   res.render('404', {
     title: ' Error not found ',
   });
 });
+
 
 module.exports = router;
 

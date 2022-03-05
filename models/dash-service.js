@@ -5,6 +5,10 @@ const ServiceSchema = new database.Schema({
     type: Date,
     default: Date.now,
   },
+  icon:{
+    type:String,
+    required:true,
+  },
   service_name:{
     type:String,
     required:true,
