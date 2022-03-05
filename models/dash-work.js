@@ -5,20 +5,19 @@ const workSchema = new database.Schema({
     type: Date,
     default: Date.now,
   },
-  category: {
+  pro_name: {
     type: String,
     required: true,
-    unique: true,
   }, 
   link:{
     type: String,
     required:true,
   },
-     pro_image: {
-      type: String,
-      required: true,
+  pro_image: {
+    type: String,
+    required: true,
     },
-    is_active: {
+  is_active: {
       type: Boolean,
        default: 1 },
     

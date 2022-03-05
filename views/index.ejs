@@ -4,6 +4,8 @@
         <%- include('../partials/head.ejs'); %>
         <style>
 
+
+
                 </style>
 <body>
             <%- include('../partials/header.ejs'); %> 
@@ -87,7 +89,7 @@
                                     <span class="skills_number">   <%= skills[item].progress_percent %> </span>
                                 </div>
                                 <div class="skills_bar">
-                                    <span class="skills_percentage " style="width: <%= skills[item].progress_percent %>%;"></span>
+                                    <span class="skills_percentage " style="width: <%= skills[item].progress_percent %>% ;"></span>
                                 </div>
                             </div>
                             <%}
@@ -138,61 +140,72 @@
                       </div>
                     </section>
 
-        <%- include('../partials/work.ejs'); %> 
-       
-        <section class="service section" id="service">
-                <h2 class="section-title">
-                    Services
-                </h2>
-                <span class="section-subtitle">What's the service i can do it</span>
-                <div class="service_container container">
-                   
-                    <div class="service_sections">
-                        <div class="service_content" >
-                            <!-- service_data1 -->
-                            <%  if(Service.length){ %>
-                                <% for(let item3 =0; item3< Service.length; item3++){ %>
-                            <div class="service_data">
-                                <div>
-                                    <h3 class="service_title">
-                                            <%= Service[item3].service_name%> 
-                                    </h3>
-                                    <span class="service_subtitle">
-                                            <%= Service[item3].details %>
-                                    </span>
-                                </div>
-                                <div class="service_warrper">
-                                    <span class="service_rounder"></span>
-                                    <span class="service_line"></span>
-                                </div>
-                            </div>
-                            
-                        
-                                <%}%> 
-<%  } else{ %>
-
-
-    There are no Service
-  
-
-<%}%>
-  
-                            <!-- service_data4 -->
-                            <div class="service_data">
-                                    <div></div>
-                                    <div>
-                                        <span class="service_rounder"></span>
+            <section class="section" id="works"  >
                 
-                                    </div>
-                                <div>
-            
-                                </div>
+                    <h2 class="section-title"> Works </h2>
+
+                        <div class="recursos">
+                            <%if(Works.length){ %>
+                                <% for(let item =0; item< Works.length; item++){ %>
+                                   
+                            <div class="recurso">
+                
+                                <a href="<%=Works[item].link %>">
+                                    <img src="/imgs/<%=Works[item].pro_image %>" alt="">
+                                </a>
+                                <h1 style="margin-left: 17%;" >  <%=Works[item].pro_name %>  </h1> 
+                             
+
                             </div>
-            
+                            <%}%> 
+                            <%  } else{ %>
+                     
+                          
+                                         There are no Works
+                                       
+                     
+                         <%}%>
+                         
+                
+                
                         </div>
+                 
                     </div>
-                </div>
-            </section>
+                  </section>
+
+       
+        <section class="section" id="service">
+       
+
+    <div class="container_ser">
+        <h2 class="section-title">
+            Services
+        </h2>
+        <br><br>
+      <div class="row">
+            <%  if(Service.length){ %>
+                <% for(let item3 =0; item3< Service.length; item3++){ %>
+        <div class="service">
+          <i class="<%= Service[item3].icon %>"></i>
+          <h2>       <%= Service[item3].service_name%> </h2>
+          <p>
+                <%= Service[item3].details %>
+          </p>
+        </div>
+        <%}%> 
+        <%  } else{ %>
+        
+        
+            There are no Service
+          
+        
+        <%}%>
+   
+      </div>
+    </div>
+  
+        </section>
+        
 
 
             <section class="contact section" id="contact">
@@ -208,7 +221,7 @@
                                 <i class="<%= Contact[item].icon %> contact_icon"></i>
                                 <div>
                                     <h3 class="contact_title"><%= Contact[item].contact_name %></h3>
-                                    <span class="contact_subtitle"><%= Contact[item].link %></span>
+                                  <a href="<%= Contact[item].link %>"><span class="contact_subtitle"><%= Contact[item].link %></span></a>  
                                 </div>
                             </div>
                             <%}%> 

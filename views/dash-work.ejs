@@ -11,157 +11,154 @@
             <!-- Dashboard left Nav Section -->
            
             <%- include('../partials/dash-left-nav'); %>
-              <!-- Works section -->
-              <section class="col-lg-8 col-md-8 col-12" id="wrk">
-                <div class="card p-3">
-                    <div class="card-header bg-transparent d-flex justify-content-between align-items-center"> 
-                                 <h4 class="fs-3 fw-bold text-prof">Works</h4>
-                  <a role="button" data-bs-toggle="modal"data-bs-target="#add-qual"
-                  class="  border border-primary rounded d-flex justify-content-center align-items-lg-center rounded-circle" 
-                  style="bottom: 10%;left: 35%; width: 30px;height: 30px;">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                      <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-                  </svg>
-            </a>
-                    <!-- <i class="fa fa-plus fw-bold fs-5 text-prof"></i> -->
-                    </div>
-  
-                    <div class="card-body">
-                      <div class="row">
-                          <h5 class="fw-bold">Web</h5>
-  
-                          <!--  Works  1-->
-                    <div class="col-12 mb-5 d-flex justify-content-between shadow-sm">
-                        <div class=" p-3 mx-2">
-                        <a href="#">
-                            <h5 class="">
-                            Engineering
-                            </h5>
-                        </a>
-  
-                        <a href="#" class="text-black-50 fs-6 d-flex flex-column">
-                            <h6 class="text-black">https://github.com/afnanalkadasi.io</h6>
-                        </a>
-                        </div>
-                        <div>
-                            <img src="img/im2.png"
-                            class="user-avatar img-fluid rounded-circle img_wr"
-                            alt="user avatar" style="width: 20%;"/>  
-                        </div>
-                    </div>
-                      <!--  Works  2-->
-                      <div class="col-12 mb-5 d-flex justify-content-between shadow-sm">
-                          <div class=" p-3 mx-2">
-                          <a href="#">
-                              <h5 class="">
-                                  Engineering
-                              </h5>
-                          </a>
+           
+
+  <!-- Contact section -->
+  <section class="col-lg-8 col-md-8 col-12" id="cont">
+        <div class="card p-3">
+            <div class="card-header bg-transparent d-flex justify-content-between align-items-center"> 
+                         <h4 class="fs-3 fw-bold text-prof">Work</h4>
+          <a role="button" data-bs-toggle="modal"data-bs-target="#addwork"
+          class="  border border-primary rounded d-flex justify-content-center align-items-lg-center rounded-circle" 
+          style="bottom: 10%;left: 35%; width: 30px;height: 30px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+          </svg>
+    </a>
+            <!-- <i class="fa fa-plus fw-bold fs-5 text-prof"></i> -->
+            </div>
     
-                          <a href="#" class="text-black-50 fs-6 d-flex flex-column">
-                              <h6 class="text-black">https://github.com/afnanalkadasi.io</h6>
-                          </a>
-                          </div>
-                          <div>
-                              <img src="img/im2.png"
-                              class="user-avatar img-fluid rounded-circle img_wr"
-                              alt="user avatar" style="width: 20%;"/>  
-                          </div>
-                      </div>
-                      </div>
+            <div class="card-body">
                   
-                      <div class="row">
-                          <h5 class="fw-bold">Desgin</h5>
-  
-                          <!--  Works  1-->
-                    <div class="col-12 mb-5 d-flex justify-content-between shadow-sm">
-                        <div class=" p-3 mx-2">
-                        <a href="#">
-                            <h5 class="">
-                            Engineering
-                            </h5>
-                        </a>
-  
-                        <a href="#" class="text-black-50 fs-6 d-flex flex-column">
-                            <h6 class="text-black">https://github.com/afnanalkadasi.io</h6>
-                        </a>
+                    <% let i =1; if(Works.length){ %>
+                        <% for(let item =0; item< Works.length; item++){ %>
+                            <%= i++ %>  
+
+                    <div class="col-12 mb-5 d-flex justify-content-between  shadow-sm">
+                            <div class=" p-3 mx-2">                         
+                                  <h2 class="text-black text-center" >
+                                       <img style="width: 45%; height: 55%;" src="/imgs/<%=Works[item].pro_image %>"> <%=Works[item].pro_name %></h2>
+                              
+                              <a href="<%=Works[item].link %>" class="text-black-50 fs-6 d-flex flex-column">
+                                      <h4 class="text-black text-center" ><%=Works[item].link %></h4>
+                                  </a>
+                                 
+                            </div>
+          
+                              <hr>
+                              <div class=" p-3 mx-2">
+                                      <button 
+                                      type="button"
+                                       class="btn btn-sm text-lg-end" 
+                                       style="color:rgb(41, 204, 155);"
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#editwork<%=Works[item]._id %>">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square " viewBox="0 0 16 16">
+                                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                   </svg>
+                                  </button>
+              
+                                  <a href="" style="color:rgb(204, 41, 55);"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                      <path fill-rule="evenodd" d="M6.5 1a.5.5 0 0 0-.5.5v1h4v-1a.5.5 0 0 0-.5-.5h-3ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1H3.042l.846 10.58a1 1 0 0 0 .997.92h6.23a1 1 0 0 0 .997-.92l.846-10.58Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+                                    </svg></i></a>
+                              </div>
                         </div>
-                        <div>
-                            <img src="img/im2.png"
-                            class="user-avatar img-fluid rounded-circle img_wr"
-                            alt="user avatar" style="width: 20%;"/>  
+                        
+                        <div class="modal fade" id="editwork<%=Works[item]._id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content p-3">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title fw-bold text-center" id="exampleModalLabel">Edit Works</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                            <form class="row g-3 needs-validation"  action="/Edit_work" method="post" enctype="multipart/form-data" >
+                                                    <input  type="hidden" name="id" value="<%=Works[item]._id%>">
+                                                    
+                                                    <div class="col-12">
+                                                            <input type="text" class="form-control rounded-pill" id="" name="pro_name" placeholder="pro_name" value=" <%=Works[item].pro_name %>">
+                                                        </div>
+                                                       
+                                                            <div class="col-12">
+                                                                    <input type="url" class="form-control rounded-pill"  name="link" placeholder="link" value="<%=Works[item].link %>">
+                                                                </div>
+                                                                <div class="col-12">
+                                                                        <input type="file" class="form-control rounded-pill"  name="pro_image" id="pro_image" placeholder="pro_image" value="<%=Works[item].pro_image %> ">
+                                                                    </div>
+                                                      
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-primary d-block " type="submit">Save</button>
+                                                    </div>
+                                                </form>
+                                    </div>
+                                   
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    
-                      </div>
-                  
-                    </div>
-                </div>
-              </section>
-  
-            <!-- Modal Add Skill -->
-            <div class="modal fade" id="addwork" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <%}%> 
+                        <%  } else{ %>
+                 
+                      
+                                     There are no Works
+                                   
+                 
+                     <%}%>
+         
+          
+              
+            </div>
+        
+    
+          
+        </div>
+      </section>
+                 <!-- Experience section -->
+        
+           <!-- Add Experience -->
+           <div class="modal fade" id="addwork" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content p-3">
                         <div class="modal-header">
-                            <h4 class="modal-title fw-bold text-center" id="exampleModalLabel">Add Work</h4>
+                            <h4 class="modal-title fw-bold text-center" id="exampleModalLabel">Add Works</h4>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form class="row g-3 needs-validation" action="addwork" method="post">
+                            <form class="row g-3 needs-validation"  action="/addwork" method="post" enctype="multipart/form-data" >
+                           
                                 <div class="col-12">
-                                    <input type="text" class="form-control rounded-pill" id="work" name="categotry"
-                                        placeholder="categotry">
+                                    <input type="text" class="form-control rounded-pill" id="" name="pro_name" placeholder="pro_name">
                                 </div>
-                                <div class="col-12">
-                                    <input type="text" class="form-control rounded-pill" id="" name="skill_name"
-                                        placeholder="Skill">
-                                </div>
-                                <div class="col-12">
-                                    <input type="range" class="form-range" name="progress_percent" id="customRange1">
-                                </div>
+                               
+                                    <div class="col-12">
+                                            <input type="url" class="form-control rounded-pill"  name="link" placeholder="link">
+                                        </div>
+                                        <div class="col-12">
+                                                <input type="file" class="form-control rounded-pill"  name="pro_image" placeholder="pro_image">
+                                            </div>
                                 <div class="modal-footer">
                                     <button class="btn btn-primary d-block " type="submit">Save</button>
                                 </div>
                             </form>
                         </div>
-
+                       
                     </div>
                 </div>
             </div>
-
-            <!-- Delete skill modal -->
-            <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-body fw-bold d-flex justify-content-lg-center align-items-center flex-column">
-                            <i class="bi bi-exclamation-circle fs-1 text-danger"></i>
-                            <h3 class="fs-4">Do you want to delete?</h3>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
-                                No
-                            </button>
-                            <button type="button" class="btn btn-danger">Yes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  
 
 
+<script src="../js2/bootstrap.bundle.min.js"></script>
+<script src="../js2/jquery.min.js"></script>
+<script>
+// $('personal').click($('pp').hide());
+$(document).ready(function(){
+$("#wrk,#skil,#serv,#expe,#Edpers,#perso").hide();
+});
 
-            <script src="../js2/bootstrap.bundle.min.js"></script>
-            <script src="../js2/jquery.min.js"></script>
-            <script>
-                // $('personal').click($('pp').hide());
-                $(document).ready(function () {
-                    $("#wrk,#serv,#expe,#cont,#Edpers").hide();
-                });
 
-
-            </script>
+</script>
 
 
 </body>
-
 </html>
