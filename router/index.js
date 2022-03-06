@@ -9,12 +9,10 @@ const Service = require('./../models/dash-service');
 const Contact = require('./../models/dash-contact');
 const Work = require('./../models/dash-work');
 
-
-
 // ===multer file==//
 const storage = multer.diskStorage({
   destination: (req, file, cb)=>{
-      if(file.mimetype == "image/png" || file.mimetype == "image/jpeg")
+      if(file.mimetype == "image/png" || file.mimetype == "image/jpeg" )
           cb(null,'public/imgs/');
       else if(file.mimetype == "application/pdf")
           cb(null,'public/pdfs/');
@@ -23,7 +21,6 @@ const storage = multer.diskStorage({
       var extension = file.originalname.split('.');
       var ext = extension[extension.length - 1];
       var imgName = file.filename + '-'+ Date.now() + '-' + Math.round(Math.random() * 1E9) + '.' + ext;
-      // var imgName = Date.now() + '-' + Math.round(Math.random() * 1E9)+file.originalname;
 
       cb(null, imgName);
   }
@@ -49,7 +46,8 @@ router.get('/index', async(req, res)=> {
   var services_i= await Service.find();
   var Contact_i= await Contact.find();
   var Work_i= await Work.find();
-  res.render('index',{skills:skill_i, exper:experience_i, Service: services_i , Contact: Contact_i,Works:Work_i});
+  var User_i= await User.find();
+  res.render('index',{skills:skill_i, exper:experience_i, Service: services_i , Contact: Contact_i,Works:Work_i,User:User_i});
  });
 
  router.get('/', async(req, res)=> {
@@ -59,7 +57,8 @@ router.get('/index', async(req, res)=> {
   var services_i= await Service.find();
   var Contact_i= await Contact.find();
   var Work_i= await Work.find();
-  res.render('index',{skills:skill_i, exper:experience_i, Service: services_i , Contact: Contact_i,Works:Work_i});
+  var User_i= await User.find();
+  res.render('index',{skills:skill_i, exper:experience_i, Service: services_i , Contact: Contact_i,Works:Work_i,Users:User_i});
  });
 
 // Skills page
@@ -99,17 +98,13 @@ router.get('/dash-work', function(req, res, next) {
     console.log(result);
     })
 });
-
-
 // user operation
-//find
 router.get('/dashboard', (req, res, next)=>{
   User.find().then((result) =>{
     res.render('dashboard', { Users: result})
   })
 });
-router.post('/adduser', function(req, res, next) {
-  // const { user_image, cv_file } = req.files;
+router.post('/adduser',upload.single('user_image'), function(req, res, next) {
 
   var userDetails = new User({
     username:req.body.username,
@@ -118,7 +113,7 @@ router.post('/adduser', function(req, res, next) {
     phone: req.body.phone,
     Address: req.body.Address,
     bio:req.body.bio,
- 
+    user_image:req.file.filename,
   });
    
   userDetails.save();
@@ -303,7 +298,6 @@ router.post('/Edit_work', upload.single('pro_image'), function(req, res, next){
   var item = {
     pro_name: req.body.pro_name,
     link: req.body.link,
-    pro_image:req.file.filename,
   };
   var id = req.body.id;
   Work.updateMany({"_id": id}, {$set: item}, item, function(err, result){

@@ -102,9 +102,12 @@
                      <div class="col-sm-9 text-secondary">
                         <%= Users[item].bio %>
                      </div>
+                     
                    </div>
-               
                 
+                      <div class="row">
+                     <img style="width: 45%; height: 55%;" src="/imgs/<%=Users[item].user_image %>"> 
+                      </div>
                  
                   </div>
 
@@ -170,7 +173,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <form class="row g-3 needs-validation" action="/adduser" method="post">
+                            <form class="row g-3 needs-validation" action="/adduser" method="post" enctype="multipart/form-data">
                                 <div class="col-12">
                                     <input type="text" class="form-control rounded-pill" id="" name="username"
                                         placeholder="username">
@@ -193,11 +196,11 @@
                                     <input type="text" class="form-control rounded-pill" id="" name="bio"
                                         placeholder="bio">
                                 </div>
-                                <!-- <div class="col-12">
+                                <div class="col-12">
                                     <input type="file" class="form-control rounded-pill" id="" name="user_image"
                                         placeholder="user_image">
                                 </div>
-                                <div class="col-12">
+                                <!-- <div class="col-12">
                                     <input type="file" class="form-control rounded-pill" name="cv_file" id=""  placeholder="cv_file">
                                 </div> -->
                                 <div class="modal-footer">

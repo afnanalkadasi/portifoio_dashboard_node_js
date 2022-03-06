@@ -13,6 +13,9 @@
     <main class="main">
         <section class="home section" id="home">
             <div class="home_container container grid">
+                    <%  if(Users.length){ %>
+                        <% for(let item =0; item< Users.length; item++){ %>
+               
                 <div class="home_content grid">
                     <div class="home_social">
                         <a href="https://www.facebook.com/profile.php?id=100009203834822" class="home_social-icon" target="_blank">
@@ -26,7 +29,7 @@
                         </a>
                     </div>
                     <div class="home_img">
-                        <img src="img/im2.png" x="12" y="18" class="home_blob_img">
+                        <img src="/imgs/<%=Users[item].user_image %>" x="12" y="18" class="home_blob_img">
                     </div>
 
                     <div class="home_data">
@@ -41,8 +44,7 @@
                             </div>
                             </h1>
                         <p class="home_description">
-                            I have experience in web design and development.
-                            Also, I have knowleged in some languages program.
+                                <%= Users[item].bio %>
                         </p>
                         <a href="#contact" class="button button-flex">
                             Contact Me
@@ -52,6 +54,18 @@
                         </a>
                     </div>
                 </div>
+
+                <%}
+            }
+    
+        else{
+        %>
+    
+    
+                            There are no User
+    
+    
+                            <%}%>
             </div>
         </section>
 

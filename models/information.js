@@ -33,7 +33,14 @@ const fileSchema = new database.Schema({
   bio: {
     type: String,
   },
- 
+  user_image: {
+    type: String,
+    required: true,
+    },
+  // cv_file: {
+  //     type: String,
+  //     required: true,
+  //     },
     is_active: {
       type: Boolean,
        default: 1 },
